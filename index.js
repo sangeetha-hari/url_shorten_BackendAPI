@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { MongoClient } from "mongodb";
 import { userRouter } from "./routes/usersaccount.js";
 import { getAlluser } from "./dbhelper.js";
+import cors from 'cors';
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const PORT=process.env.PORT;
 const MONGO_URL=process.env.MONGO_URL;
 const app=express();
 app.use(express.json());
+app.use(cors());
 
 async function createConnection(){
     const client=new MongoClient(MONGO_URL);
