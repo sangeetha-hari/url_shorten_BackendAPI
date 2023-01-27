@@ -220,17 +220,13 @@ router.post("/reset_password", async(req,res)=>{
 try {
   //check the token
   const token=req.body.token;
-  console.log("token is: ",token)
   const newpassword=req.body.password;
-  console.log(newpassword);
   //get user by email
   const result= await genUserByEmail(req.body.email);
-  console.log(result);
-  console.log("this is result of get",result);
   //check the token match
   if(result.token==token){
-//hash the password
 console.log("token matched")
+//hash the password
 const hasedpass= await genhashPassword(req.body.password);
 console.log(hasedpass);
 const update= await userUpdatePassword(req.body.email,hasedpass); // now update the password
