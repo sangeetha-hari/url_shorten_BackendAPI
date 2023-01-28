@@ -40,3 +40,19 @@ export async function genUserByEmail(name) {
     const result= await client.db("mentor_student").collection("url_shortendb").updateOne({email:name},{$set:{password:hasedpass}});
     return (result);
   }
+
+  
+
+  export async function createNewUrl(newurl){
+    console.log("this is insert url function");
+    console.log(newurl);
+    const result= await client.db("mentor_student").collection("url_short").insertOne(newurl);
+    return result;
+  }
+
+  //findShortUrl
+  export async function getUrlByShortUrl(shortUrl) {
+    console.log("this is in getUrlByShortUrl function");
+    const result = await client.db("mentor_student").collection("url_short").findOne({ shorturl: shortUrl });
+    return (result);
+  }
