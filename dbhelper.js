@@ -56,3 +56,13 @@ export async function genUserByEmail(name) {
     const result = await client.db("mentor_student").collection("url_short").findOne({ shorturl: shortUrl });
     return (result);
   }
+
+  export async function getAllUrl() {
+    const result = await client.db("mentor_student").collection("url_short").find().toArray();
+    return result;
+}
+
+export async function getUrlBymonth(month) {
+  const result = await client.db("mentor_student").collection("url_short").find({date:{$regex : month}}).toArray();
+  return result;
+}
