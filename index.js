@@ -3,11 +3,8 @@ import dotenv from 'dotenv';
 import { MongoClient } from "mongodb";
 import { userRouter } from "./routes/usersaccount.js";
 import { shortRouter } from "./routes/shortur.js";
-// import { dashRouter } from "./routes/dashboard.js";
 import { getAlluser } from "./dbhelper.js";
 import cors from 'cors';
-import { nanoid } from "nanoid";
-import validUrl from "valid-url";
 
 
 
