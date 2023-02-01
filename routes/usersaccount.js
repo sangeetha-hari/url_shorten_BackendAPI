@@ -161,7 +161,7 @@ res.status(400).send({"message":"Invalid credentials"});
 })
 
 
-router.post("/login", auth, async (req, res) => {
+router.post("/login",  async (req, res) => {
   try {
     console.log(req.body.email);
     const user = await genUserByEmail(req.body.email);
