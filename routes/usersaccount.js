@@ -175,7 +175,7 @@ router.post("/login",  async (req, res) => {
       if (!ispasswordmatch) {
         res.status(400).send({ message: "Invalid Crendentials" });
       } else {
-        const jwttoken = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
+        const jwttoken = jwt.sign({ id: user._id }, process.env.SECRET_KEY,{expiresIn:"1m"});
 
         res
           .status(200)
@@ -239,6 +239,11 @@ res.status(200).send({message:"Password updated successfully"}); //send response
 } catch (error) {
   res.status(400).send({ message: error });
 }
+})
+
+router.get("/posts",auth,async(req,res)=>{
+  console.log("authorised user");
+
 })
 
 export const userRouter = router;

@@ -32,7 +32,8 @@ router.post("/", async (req, res) => {
       };
       const result = await createNewUrl(newurl);
       console.log(result);
-      res.status(200).send(result);
+      const createdurl="https://url-shortern.onrender.com/"+shortUrl;
+      res.status(200).send(createdurl);
     } else {
       console.log("Not a URI");
       res.send({ message: "Not a URI" });
@@ -50,7 +51,7 @@ router.get("/dashboard", async (req, res) => {
     console.log(date);
     const month = date.slice(4, 7);
     console.log(month);
-    const urlOfMonth = await getUrlBymonth(month);
+    const urlOfMonth = await getUrlBymonth(month); console.log(urlOfMonth)
     res.status(200).send(urlOfMonth);
   } catch (error) {
     res.status(400).send({ message: error.message });
