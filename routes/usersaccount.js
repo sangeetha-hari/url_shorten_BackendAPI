@@ -23,7 +23,7 @@ const mailOptions={
   from:process.env.user,
   to:email,
   subject:"To activate the account",
-  html:'<p>Welcome'+username+'<br/> This mail is send so that you can activate your account. Do <a href="xyz?token='+randomstring+'">click here</a></p>',
+  html:'<p>Welcome'+username+'<br/> This mail is send so that you can activate your account. Do <a href="https://main--cute-sable-544c01.netlify.app/activate?token='+randomstring+'">click here</a></p>',
 }
 
 transpoter.sendMail(mailOptions,function(error,info){
@@ -61,7 +61,7 @@ const mailOptions={
   from:process.env.user,
   to:email,
   subject:"To activate the account",
-  html:'<p>Welcome'+username+'<br/> This mail is for reset password your account. Do <a href="xyz">click here</a> your secret code is:'+randomstring+'</p>',
+  html:'<p>Welcome'+username+'<br/> This mail is for reset password your account. Do <a href="https://main--cute-sable-544c01.netlify.app/resetpassword">click here</a> your secret code is:'+randomstring+'</p>',
 }
 
 transpoter.sendMail(mailOptions,function(error,info){
