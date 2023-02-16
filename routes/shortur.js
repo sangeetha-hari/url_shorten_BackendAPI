@@ -14,7 +14,7 @@ import {
 const router = express.Router();
 
 //shorturl generator api
-router.post("/",auth, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const fullurl = req.body.fullurl;
     console.log(fullurl);
