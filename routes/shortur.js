@@ -1,6 +1,7 @@
 import express from "express";
 import { nanoid } from "nanoid";
 import validUrl from "valid-url";
+import { auth } from "../middleware/auth.js";
 
 import { client } from "../index.js";
 import {
